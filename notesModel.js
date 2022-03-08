@@ -1,22 +1,19 @@
-class Notesmodule {
-    constructor(){
-        this.notes = [];
-    };
-
+class NotesModel{
+    constructor() {
+      this.notes = []
+    }
+    
     getNotes() {
-        return this.notes;
-    };
-
-    addNotes(note) {
-        this.notes.push(note);
-    };
-
+      return this.notes
+    }
+  
+    addNote(note) {
+      this.notes.push(note)
+    }
+  
     reset() {
-        this.notes = [];
-    };
-
-};
-
-
-
-module.exports = Notesmodule;
+      this.notes = []
+    }
+  }
+  
+  module.exports = NotesModel;

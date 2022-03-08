@@ -1,27 +1,27 @@
-const Notesmodule = require('./notesModel');
+const NotesModel = require('./notesModel');
 
-describe('Notesmodel class', () => {
-    it('can retrieve note', () => {
-        const model = new Notesmodule();
-        expect(model.getNotes()).toEqual([]);
-    });
-    it('can retrieve note', () => {
-        const model = new Notesmodule();
-        model.addNotes('note1')
-        expect(model.getNotes()).toEqual(['note1']);
-    });
-    it('can retrieve note', () => {
-        const model = new Notesmodule();
-        model.addNotes('note1');
-        model.addNotes('note2');
-        expect(model.getNotes()).toEqual(['note1','note2']);
-    });
-    it('can retrieve note', () => {
-        const model = new Notesmodule();
-        model.addNotes('note1');
-        model.addNotes('note2');
-        model.reset();
-        expect(model.getNotes()).toEqual([]);
-    });
-});
+describe(NotesModel, () => {
+  describe('getNotes', () => {
+    it('return notes array', () => {
+      const model = new NotesModel();
+      expect(model.getNotes()).toEqual([])
+    })
+  })
 
+  describe('addNote', () => {
+    it('adds a note to notes array', () => {
+      const model = new NotesModel();
+      model.addNote('Buy milk');
+      expect(model.getNotes()).toEqual(['Buy milk'])
+    })
+  })
+
+  describe('reset', () => {
+    it('clear the notes array', () => {
+      const model = new NotesModel();
+      model.addNote('Buy milk');
+      model.reset();
+      expect(model.getNotes()).toEqual([])
+    })
+  })
+})
