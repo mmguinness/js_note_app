@@ -1,21 +1,33 @@
 class MessageView {
   constructor() {
     this.buttonEl = document.querySelector('#show-message-button');
+    this.hideButton = document.querySelector('#hide-message-button');
+
+    this.mainContainerEl = document.querySelector('#main-container');
 
     this.buttonEl.addEventListener('click', () => {
        this.displayMessage();
     });
 
-    this.mainContainerEl = document.querySelector('#main-container');
+    this.hideButton.addEventListener('click', () => {
+      this.hideMessage();
+   });
+
   }
 
   displayMessage() {
     console.log('Thanks for clicking me!');
 
-    let message = document.createElement('#message');
-    message.innerText = "New message from JS";
-    this.mainContainerEl.append(message);
+    this.div = document.createElement('div');
+    this.div.setAttribute('id', 'message')
+    this.div.innerText = 'A message from JS';
+    this.mainContainerEl.append(this.div);
 
+  }
+
+  hideMessage() {
+    const message = document.getElementById('message');
+    message.remove();
   }
 }
 
