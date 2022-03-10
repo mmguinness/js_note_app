@@ -20,7 +20,7 @@ class MessageView {
 
     this.div = document.createElement('div');
     this.div.setAttribute('id', 'message')
-    this.div.innerText = 'A message from JS';
+    this.div.innerText = document.querySelector('#message-input');
     this.mainContainerEl.append(this.div);
 
   }

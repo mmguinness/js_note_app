@@ -8,13 +8,15 @@ const MessageView = require('./messageView');
 describe('MessageView', () => {
   it('clicks the button', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
-
     const view = new MessageView();
-
     const buttonEl = document.querySelector('#show-message-button');
-    buttonEl.click();
+    
+    const formEl = document.querySelector('#message-input');
+    formEl.value = 'Sample text';
 
-    expect(document.querySelector('#message')).not.toBeNull();
+    buttonEl.click();
+    const testText = document.querySelector('#message')
+    expect(testText).toBe('Sample text');
   });
 
   it('hides the message', () => {
