@@ -32,13 +32,19 @@
         constructor(model2) {
           this.model = model2;
           this.mainContainerEl = document.querySelector("#main-container");
+          this.buttonEl = document.querySelector("#create-note");
+          this.buttonEl.addEventListener("click", () => {
+            this.displayNotes();
+          });
         }
         displayNotes() {
+          this.model.addNote(document.querySelector("#input-text").value);
           let listofnotes = this.model.getNotes();
           listofnotes.forEach((note) => {
             let noteEl = document.createElement("div");
             noteEl.innerText = note;
             noteEl.className = "note";
+            noteEl.id = "note";
             this.mainContainerEl.append(noteEl);
           });
         }
@@ -51,7 +57,5 @@
   var NotesModel = require_notesModel();
   var NotesView = require_notesView();
   var model = new NotesModel();
-  model.addNote("This is an example note");
   var view = new NotesView(model);
-  view.displayNotes();
 })();

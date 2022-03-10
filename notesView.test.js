@@ -9,18 +9,21 @@
 
 describe('NotesView', () => {
   describe('displayNotes', () => {
-    it('displays two notes', () => {
+    it('displays a note that a user inputs on the page', () => {
       document.body.innerHTML = fs.readFileSync('./index.html');
 
     const notesmodel = new NotesModel;
     const notesview = new NotesView(notesmodel);
-    notesmodel.addNote('new note');
-    notesmodel.addNote('another note');
 
-    
-    
-    notesview.displayNotes();
-    expect(document.querySelectorAll('div.note').length).toBe(2);
+    const formEl = document.querySelector('#input-text');
+    formEl.value = 'Test title';
+
+    const buttonEl = document.querySelector('#create-note');
+    buttonEl.click();
+
+    expect(document.querySelectorAll('#note')[0].innerText).toBe('Test title');
     });
   });
+
+
 });

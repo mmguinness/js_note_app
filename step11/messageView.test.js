@@ -6,17 +6,20 @@ const fs = require('fs');
 const MessageView = require('./messageView');
 
 describe('MessageView', () => {
-  it('clicks the button', () => {
+  it('clicks the button and displays text', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
+
     const view = new MessageView();
     const buttonEl = document.querySelector('#show-message-button');
     
     const formEl = document.querySelector('#message-input');
+
     formEl.value = 'Sample text';
 
     buttonEl.click();
-    const output = document.getElementById('#message');
-    expect(console.log(output.value)).toBe('Sample text');
+
+    const output = document.querySelector('#message').innerText;
+    expect(output).toBe('Sample text');
   });
 
   it('hides the message', () => {
