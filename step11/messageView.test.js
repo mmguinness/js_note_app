@@ -15,8 +15,8 @@ describe('MessageView', () => {
     formEl.value = 'Sample text';
 
     buttonEl.click();
-    const testText = document.querySelector('#message')
-    expect(testText).toBe('Sample text');
+    const output = document.getElementById('#message');
+    expect(console.log(output.value)).toBe('Sample text');
   });
 
   it('hides the message', () => {

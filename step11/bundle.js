@@ -22,7 +22,7 @@
           console.log("Thanks for clicking me!");
           this.div = document.createElement("div");
           this.div.setAttribute("id", "message");
-          this.div.innerText = "A message from JS";
+          this.div.innerText = document.querySelector("#message-input").value;
           this.mainContainerEl.append(this.div);
         }
         hideMessage() {

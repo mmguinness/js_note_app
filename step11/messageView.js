@@ -20,9 +20,9 @@ class MessageView {
 
     this.div = document.createElement('div');
     this.div.setAttribute('id', 'message')
-    this.div.innerText = document.querySelector('#message-input');
+    this.div.innerText = document.querySelector('#message-input').value;
+    
     this.mainContainerEl.append(this.div);
-
   }
 
   hideMessage() {
